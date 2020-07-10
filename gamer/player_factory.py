@@ -1,6 +1,6 @@
-from names import PlayerNames
-from betting_money import BettingMoney
-from player import Player
+from gamer.names import PlayerNames
+from gamer.gamer import Player
+from profit.betting_money import BettingMoney
 
 
 class PlayerFactory:

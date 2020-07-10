@@ -1,6 +1,6 @@
-from symbol import Symbol
-from card_type import CardType
-from card import Card
+from card.symbol import Symbol
+from card.card_type import CardType
+from card.card import Card
 
 
 class CardFactory:

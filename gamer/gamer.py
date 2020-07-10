@@ -1,9 +1,9 @@
 from abc import ABCMeta, abstractmethod
 
-from score import Score
+from profit.score import Score
 
-from input_view import InputView
-from output_view import OutputView
+from view.input_view import InputView
+from view.output_view import OutputView
 
 
 class Gamer(metaclass=ABCMeta):

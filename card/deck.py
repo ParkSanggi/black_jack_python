@@ -1,6 +1,6 @@
 from random import randint
 
-from card_factory import CardFactory
+from card.card_factory import CardFactory
 
 
 class Deck:

@@ -1,8 +1,8 @@
-from player import Dealer
-from player_factory import PlayerFactory
-from books import Books
-from referee import Referee
-from output_view import OutputView
+from gamer.gamer import Dealer
+from gamer.player_factory import PlayerFactory
+from profit.books import Books
+from profit.referee import Referee
+from view.output_view import OutputView
 
 
 class Gamers:

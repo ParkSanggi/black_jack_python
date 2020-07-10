@@ -1,4 +1,4 @@
-from input_view import InputView
+from view.input_view import InputView
 
 
 class PlayerNames:

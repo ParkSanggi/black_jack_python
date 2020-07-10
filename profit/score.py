@@ -1,4 +1,4 @@
-from symbol import Symbol
+from card.symbol import Symbol
 
 
 class Score:
