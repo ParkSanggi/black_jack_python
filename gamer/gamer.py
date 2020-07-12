@@ -9,19 +9,19 @@ from view.output_view import OutputView
 class Gamer(metaclass=ABCMeta):
 
     def __init__(self):
-        self.cards = list()
+        self.__cards = list()
 
     def add_card(self, card):
-        self.cards.append(card)
+        self.__cards.append(card)
 
     def get_cards(self):
-        return self.cards
+        return self.__cards
 
     def get_score(self):
-        return Score(self.cards)
+        return Score(self.__cards)
 
     def has_over_score(self):
-        return Score(self.cards).is_over_black_jack()
+        return Score(self.__cards).is_over_black_jack()
 
     @abstractmethod
     def get_name(self):
@@ -40,17 +40,17 @@ class Player(Gamer):
 
     def __init__(self, name, betting_money):
         super().__init__()
-        self.name = name
-        self.betting_money = betting_money
+        self.__name = name
+        self.__betting_money = betting_money
 
     def get_name(self):
-        return self.name
+        return self.__name
 
     def need_more_cards(self):
         response = ""
 
         while response != 'y' and response != 'n':
-            response = InputView.input_need_more_card(self.name)
+            response = InputView.input_need_more_card(self.__name)
         if response == 'y':
             return True
         return False
@@ -60,7 +60,7 @@ class Player(Gamer):
         OutputView.output_new_line()
 
     def get_betting_money(self):
-        return self.betting_money
+        return self.__betting_money
 
 
 class Dealer(Gamer):
@@ -69,7 +69,7 @@ class Dealer(Gamer):
         return "딜러"
 
     def need_more_cards(self):
-        score = Score(self.cards)
+        score = Score(self.__cards)
         return not score.is_over_dealer_limit()
 
     def notice_addition(self):
