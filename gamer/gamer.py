@@ -9,19 +9,19 @@ from view.output_view import OutputView
 class Gamer(metaclass=ABCMeta):
 
     def __init__(self):
-        self.__cards = list()
+        self._cards = list()
 
     def add_card(self, card):
-        self.__cards.append(card)
+        self._cards.append(card)
 
     def get_cards(self):
-        return self.__cards
+        return self._cards
 
     def get_score(self):
-        return Score(self.__cards)
+        return Score(self._cards)
 
     def has_over_score(self):
-        return Score(self.__cards).is_over_black_jack()
+        return Score(self._cards).is_over_black_jack()
 
     @abstractmethod
     def get_name(self):
@@ -32,7 +32,7 @@ class Gamer(metaclass=ABCMeta):
         pass
 
     @abstractmethod
-    def notice_addition(self):
+    def acknowledge_receipt_of_card(self):
         pass
 
 
@@ -55,8 +55,8 @@ class Player(Gamer):
             return True
         return False
 
-    def notice_addition(self):
-        OutputView.output_gamers_cards(self)
+    def acknowledge_receipt_of_card(self):
+        OutputView.output_cards_which_gamer_is_holding(self)
         OutputView.output_new_line()
 
     def get_betting_money(self):
@@ -69,8 +69,8 @@ class Dealer(Gamer):
         return "딜러"
 
     def need_more_cards(self):
-        score = Score(self.__cards)
+        score = Score(self._cards)
         return not score.is_over_dealer_limit()
 
-    def notice_addition(self):
-        OutputView.output_notice_dealer_addition()
+    def acknowledge_receipt_of_card(self):
+        OutputView.output_dealer_has_received_card()

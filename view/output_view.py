@@ -6,19 +6,19 @@ class OutputView:
         print('')
 
     @classmethod
-    def output_set_cards_for_starting(cls, player_names):
-        name_count = len(player_names)
+    def output_card_setting_for_starting_is_complete(cls, players):
+        name_count = len(players)
 
         print("딜러와 ", end='')
         for i in range(name_count):
-            print(player_names[i], end='')
+            print(players[i].get_name(), end='')
             if i != name_count - 1:
                 print(", ", end='')
             else:
                 print("에게 2장의 카드를 나누었습니다.")
 
     @classmethod
-    def output_gamers_cards(cls, gamer):
+    def output_cards_which_gamer_is_holding(cls, gamer):
         cards = gamer.get_cards()
         card_count = len(cards)
         name = gamer.get_name()
@@ -30,7 +30,7 @@ class OutputView:
                 print(", ", end='')
 
     @classmethod
-    def output_notice_dealer_addition(cls):
+    def output_dealer_has_received_card(cls):
         print("딜러는 16이하라 한장의 카드를 받았습니다.")
 
     @classmethod
